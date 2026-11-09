@@ -1,0 +1,35 @@
+<!-- Hey miss! I promise there is nothing rigged in here, and everything is open sourced on my Github (https://github.com/MRHWCKRR) where you get send your AI to check for viruses and bias :D -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2855e7"><meta name="description" content="Random groups, with your people in mind. Prioritise nominations, choose group sizes, and reshuffle for a fresh mix.">
+<title>Together — Random group generator</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%232855e7'/%3E%3Cpath d='M16 22h32M24 22v24M40 22v24' stroke='white' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="./" aria-label="Together home"><span class="brand-mark" aria-hidden="true">⌘</span> together<span class="brand-dot">.</span></a><span class="header-note">A little random. A lot better together.</span></header>
+<main>
+<section class="intro"><div><p class="eyebrow">The group generator with a people-first twist</p><h1>Good groups.</h1><p class="lead">Mix things up. Keep your people together.<br>Make random groups that work for everyone.</p></div><div class="intro-art" aria-hidden="true"><div class="art-card art-one"><span class="mini-avatar pink">A</span><span class="mini-avatar lilac">J</span><span class="art-link">↔</span><small>Better together</small></div><div class="art-card art-two"><span class="mini-avatar mint">S</span><span class="mini-avatar orange">M</span><span class="mini-avatar blue">R</span><small>A fresh mix, every time</small></div><span class="art-spark">✳</span><span class="art-orbit"></span></div></section>
+<div class="workspace">
+<section class="setup" aria-label="Group setup">
+<div class="section-heading"><span class="step">1</span><h2>Who’s joining?</h2><span id="people-count" class="count">0 people</span></div>
+<label for="names" class="hint">Add one name per line.</label><textarea id="names" placeholder="Alex&#10;Jamie&#10;Sam&#10;Morgan&#10;Riley" spellcheck="false"></textarea>
+<div class="under-input"><span>Your list stays in this browser.</span><button id="sample" class="text-button" type="button">Try an example</button></div>
+<div class="section-heading nomination-heading"><span class="step">2</span><h2>Keep people together</h2><span class="optional">Optional</span></div>
+<p class="hint">Add nominations. We favour these connections, but can split chains for a fresh mix. No self-nominations or loops.</p>
+<div class="nomination-form"><label class="sr-only" for="person-a">First person</label><select id="person-a"><option value="">Choose a person</option></select><span class="link-symbol" aria-hidden="true">↔</span><label class="sr-only" for="person-b">Nominated person</label><select id="person-b"><option value="">Their nomination</option></select><button id="add-link" class="add-button" aria-label="Add nomination" type="button">+</button></div>
+<div id="links" class="links"></div><p id="bundle-summary" class="bundle-summary" hidden></p>
+<div class="section-heading settings-heading"><span class="step">3</span><h2>Make it your mix</h2></div>
+<div class="segmented" role="group" aria-label="Grouping method"><button type="button" data-mode="count" aria-pressed="true">Number of groups</button><button type="button" data-mode="size" aria-pressed="false">People per group</button></div>
+<div class="size-row"><div><label id="value-label" for="group-value">How many groups?</label><p id="size-hint" class="hint">We’ll make the sizes as even as we can.</p></div><input id="group-value" type="number" value="3" min="1" step="1" inputmode="numeric"></div>
+<p id="error" class="error" role="alert" hidden></p><button id="generate" class="primary" type="button"><span aria-hidden="true">⤨</span> Generate groups</button>
+</section>
+<section class="results" aria-labelledby="results-heading"><div class="results-header"><div><div class="result-kicker">A fresh mix</div><h2 id="results-heading">Your groups</h2></div><button id="copy" class="copy-button" type="button" hidden>Copy groups</button></div>
+<p id="result-meta" class="result-meta">Your next great group starts here.</p><div id="result-body"><div class="empty-state"><div class="empty-illustration" aria-hidden="true"><span>☺</span><span>☺</span><span>☺</span></div><h3>Let’s get everyone together.</h3><p>Add your names, set your nominations,<br>and let a little randomness do the rest.</p><button class="example-button" id="empty-sample" type="button">Try it with example names <span aria-hidden="true">↗</span></button></div></div>
+<div class="result-note"><span aria-hidden="true">↔</span><p><strong>Connections get a head start.</strong> Nominations are preferences, not locks. Each shuffle can split chains while keeping group sizes balanced.</p></div><p id="status" class="sr-only" role="status" aria-live="polite"></p>
+</section></div>
+<footer><span>Made for classrooms, teams, and everyone in between.</span><span>Less organising. More together.</span></footer>
+</main><script type="module" src="app.mjs"></script>
+</body></html>
